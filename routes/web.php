@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\siteController;
 use App\Http\Controllers\photoController;
+use App\Http\Controllers\LocalizationController;
+use App\Http\Middleware\Localization;
+
 
 
 /*
@@ -24,6 +27,13 @@ Route::get('/login',[siteController::class,'login']);
 Route::post('/login',[siteController::class,'confirm_login']);
 Route::get('/register',[siteController::class,'register']);
 Route::post('/register',[siteController::class,'register_confirm']);
+Route::get('/logout',[siteController::class,'logout']);
+
+Route::get('/{lang?}',function ($lang ='en'){
+    return view('/');
+});
+
+Route::get('lang/{language}',[LocalizationController::class,'index']);
 
 Route::get('/upload',[photoController::class,'upload']);
 Route::post('/upload',[photoController::class,'upload_confirm']);

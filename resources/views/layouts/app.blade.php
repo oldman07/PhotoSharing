@@ -25,7 +25,7 @@
 				</li>
 				@if (session('name'))
 					<li class="nav-item">
-						<a class="nav-link" href="/upload">{{__('profile.Upload')}}</a>
+						<a class="nav-link" href="/dashboard">Dashboard</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/upload">Upload</a>

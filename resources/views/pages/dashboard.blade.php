@@ -9,6 +9,8 @@
 
     @forelse ($photos as $photo)
 
+    <p>Title: {{ $photo->title }}</p> 
+    <p>Username: {{ $photo->user->name }}</p>
     <img 
     src="{{ asset('images/'.$photo->image_path) }}" 
     alt="no pic"> 

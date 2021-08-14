@@ -81,4 +81,9 @@ public function register_confirm(Request $request){
     return redirect('/')->with('success', $message); 
 
  }
+ public function logout() {
+    session()->flush();
+    $message = "Logged Out";
+    return redirect('/login')->with('success', $message);
+}
 }
