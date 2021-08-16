@@ -10,10 +10,12 @@
     @forelse ($photos as $photo)
 
     <p>Title: {{ $photo->title }}</p> 
+    <p>link: {{ $photo->link }}</p> 
     <p>Username: {{ $photo->user->name }}</p>
     <img 
     src="{{ asset('images/'.$photo->image_path) }}" 
     alt="no pic"> 
+    <a href="{{url('/download',$photo->image_path)}}">Download</a>
 
 <hr>
 @empty

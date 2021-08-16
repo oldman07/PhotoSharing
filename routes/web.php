@@ -19,9 +19,12 @@ use App\Http\Middleware\Localization;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/{lang?}',function ($lang ='en'){
+//     return view('/');
+// });
 Route::get('/',[siteController::class,'home']);
 Route::get('/login',[siteController::class,'login']);
 Route::post('/login',[siteController::class,'confirm_login']);
@@ -29,13 +32,15 @@ Route::get('/register',[siteController::class,'register']);
 Route::post('/register',[siteController::class,'register_confirm']);
 Route::get('/logout',[siteController::class,'logout']);
 
-Route::get('/{lang?}',function ($lang ='en'){
-    return view('/');
-});
+
 
 Route::get('lang/{language}',[LocalizationController::class,'index']);
 
 Route::get('/upload',[photoController::class,'upload']);
+Route::get('/download{image_path}',[photoController::class,'download']);
+
+Route::get('/ok',[photoController::class,'ok']);
+
 Route::post('/upload',[photoController::class,'upload_confirm']);
 Route::get('/dashboard',[photoController::class,'dashboard']);
 

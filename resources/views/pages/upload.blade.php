@@ -10,17 +10,17 @@
 
  {{-- Discussion template   --}}
     
- <form action="/upload" method="POST" enctype="multipart/form">
+ <form action="/upload" method="POST" enctype="multipart/form-data">
+  @csrf
     <div class="form-group">
-        @csrf
       <label for="exampleInputEmail1">Title</label>
       <input type="text" class="form-control" name="title" >
       <span class="text-danger">@error('email'){{ $message }} @enderror</span>
 
     </div>
     <div class="form-group">
-      <input type="file"  name="file">
-      <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+      <input type="file" name="image">
+      <span class="text-danger">@error('image'){{ $message }} @enderror</span>
     </div>
    
     <button type="submit" class="btn btn-primary">{{__('profile.Submit')}}</button>
